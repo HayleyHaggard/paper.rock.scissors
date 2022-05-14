@@ -1,0 +1,130 @@
+$maxWidth: 1100;
+
+@mixin adaptiv-font($pcSize, $mobSize) {
+  $addSize: $pcSize - $mobSize;
+  $addMobSize: $addSize + $addSize* 0.7;
+  @media (max-width: 767px) {
+    font-size: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - 320px) / #{$maxWidth}));
+  }
+  @media (min-width: 767px) {
+    font-size: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidth}));
+  }
+}
+
+
+@media (max-width: 992px) {
+  .game {
+    &__score {
+      @include adaptiv-font(25, 18);
+    }
+    &__text {
+      padding: 0 20px 40px;
+      margin-bottom: 0;
+      @include adaptiv-font(25, 20);
+    }
+    &__card {
+      min-width: 200px;
+      height: 300px;
+      &:hover {
+        box-shadow: 5px 5px 2px 0px rgba(100, 100, 100, 0.5);
+        transform: scale(1);
+      }
+    }
+    &__card-paper,
+    &__card-rock {
+      width: 150px;
+      height: 150px;
+    }
+    &__card-scissors:before,
+    &__card-scissors:after {
+      width: 170px;
+      height: 30px;
+      top: 50px;
+    }
+    &__play,
+    &__restart-btn {
+      padding: 8px 18px;
+      &:hover {
+        box-shadow: 5px 5px 2px 0 rgba(100, 100, 100, 0.5),
+          inset 10px 10px 20px 0 rgba(100, 100, 100, 0.1);
+        transform: scale(1);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .game {
+    &__cards {
+      margin-bottom: 20px;
+    }
+    &__card {
+      min-width: 150px;
+      height: 220px;
+    }
+    &__card-title {
+      margin-bottom: 15px;
+      letter-spacing: 2px;
+      @include adaptiv-font(25, 16);
+    }
+    &__card-paper,
+    &__card-rock {
+      width: 100px;
+      height: 100px;
+      &:before,
+      &:after {
+        width: 60px;
+        height: 60px;
+      }
+    }
+    &__card-scissors {
+      width: 100px;
+    }
+    &__card-scissors:before,
+    &__card-scissors:after {
+      width: 120px;
+      height: 20px;
+      top: 50px;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .game {
+    &__score {
+      padding: 15px;
+      span {
+        display: none;
+      }
+    }
+    &__cards {
+      flex-direction: column;
+      align-items: center;
+    }
+    &__card {
+      margin-bottom: 20px;
+      padding: 10px;
+      height: 150px;
+    }
+    &__card-title {
+      margin-bottom: 15px;
+      letter-spacing: 2px;
+    }
+    &__card-paper,
+    &__card-rock {
+      width: 80px;
+      height: 80px;
+      &:before,
+      &:after {
+        width: 40px;
+        height: 40px;
+      }
+    }
+    &__card-scissors:before,
+    &__card-scissors:after {
+      width: 100px;
+      height: 20px;
+      top: 30px;
+    }
+  }
+}

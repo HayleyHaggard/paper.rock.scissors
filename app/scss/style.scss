@@ -1,0 +1,205 @@
+@import 'vars';
+@import 'fonts';
+@import 'reset';
+@import 'theme';
+@import 'global';
+
+
+.game {
+  height: 100vh;
+  background-color: $bg;
+  background: linear-gradient(#e1d0c4, #eacebf, #d3ddd5, #cee4d8, #aeacf1);
+  &__score {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding: 40px;
+  }
+
+  &__text {
+    margin-bottom: 50px;
+    font-size: 30px;
+    text-align: center;
+  }
+
+  &__cards {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__card {
+    padding: 30px;
+    min-width: 300px;
+    height: 400px;
+    text-align: center;
+    font-size: 40px;
+    letter-spacing: 10px;
+    background-color: $white;
+    box-shadow: 5px 5px 2px 0px rgba(100, 100, 100, 0.5);
+    transition: ease-in-out .3s all;
+    transform: scale(1);
+    cursor: pointer;
+    &:hover {
+      box-shadow: 12px 12px 18px 3px rgba(100, 100, 100, 0.5);
+      transform: scale(1.1);
+    }
+    span {
+      margin: 0 auto;
+    }
+  }
+
+  &__card-title {
+    margin-bottom: 30px;
+  }
+
+  &__card-paper {
+    position: relative;
+    display: block;
+    width: 200px;
+    height: 200px;
+    border-radius: 10%;
+  }
+
+  &__card-rock {
+    position: relative;
+    display: block;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
+
+  &__card-paper:after,
+  &__card-rock:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    background-color: $white;
+  }
+  &__card-paper:after {
+    border-radius: 10%;
+  }
+  &__card-rock:after {
+    border-radius: 50%;
+  }
+
+  &__card-scissors:before,
+  &__card-scissors:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 220px;
+    height: 50px;
+    background-image: url(../img/bg.jpg);
+    -webkit-background-clip: content-box;
+    -webkit-text-fill-color: transparent;
+    animation-duration: 35s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+    animation-name: fluid;
+    background-size: 100%;
+    background-color: #000;
+  }
+  &__card-scissors:before {
+    transform: rotate(45deg);
+  }
+  &__card-scissors:after {
+    transform: rotate(-45deg);
+  }
+
+  &__box {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__play,
+  &__restart-btn {
+    @extend %btn;
+  }
+
+  &__modal {
+    position: fixed;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 30px;
+    background-color: $white;
+    text-align: center;
+    font-size: 30px;
+    color: $default;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+  }
+  &__modal.active {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  &__modal-title {
+    margin-bottom: 30px;
+    font-size: 40px;
+  }
+
+  &__overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.6;
+  }
+  &__overlay.active {
+    display: block;
+  }
+}
+
+
+.color {
+  background-image: url(../img/bg.jpg);
+  -webkit-background-clip: content-box;
+  -webkit-text-fill-color: transparent;
+  animation-duration: 40s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+  animation-name: fluid;
+  background-size: 220%;
+  background-color: #000;
+}
+
+
+@keyframes fluid {
+  from {
+    background-position: left top;
+  }
+  to {
+    background-position: right bottom;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@import 'media';

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paper-rock-scissors</title>
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+  <main>
+    <section class="game">
+      <div class="container">
+        <div class="game__score">
+          <div class="game__score-user">Your score: 0</div>
+          <span>vs</span>
+          <div class="game__score-pc">Computer: 0</div>
+        </div>
+        <h3 class="game__text">Choose your weapon</h3>
+        <div class="game__cards">
+          <div class="game__card" id="paper">
+            <h6 class="game__card-title">Paper</h6>
+            <span class="game__card-paper color"></span>
+          </div>
+
+          <div class="game__card" id="scissors">
+            <h6 class="game__card-title">Scissors</h6>
+            <span class="game__card-scissors"></span>
+          </div>
+
+          <div class="game__card" id="rock">
+            <h6 class="game__card-title">Rock</h6>
+            <span class="game__card-rock color"></span>
+          </div>
+        </div>
+        <div class="game__box">
+          <button class="game__play">Restart</button>
+        </div>
+      </div>
+
+      <div class="game__modal">
+        <p class="game__modal-title"></p>
+        <button class="game__restart-btn">Play again</button>
+      </div>
+      <div class="game__overlay"></div>
+    </section>
+  </main>
+
+  <script src="js/main.min.js"></script>
+</body>
+
+</html>

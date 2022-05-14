@@ -1,0 +1,22 @@
+body {
+  @extend %koulen;
+  font-size: 25px;
+  line-height: 1.5;
+  color: $default;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 15px;
+  max-width: 1100px;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  color: $default;
+  background: $white;
+}
